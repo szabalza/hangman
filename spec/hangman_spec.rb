@@ -1,4 +1,4 @@
-require './hangman'
+require './lib/hangman'
 
 describe Hangman do
     before(:each) do
