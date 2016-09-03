@@ -19,3 +19,7 @@ Then(/^debo ver el boton de nombre "(.*?)"$/) do |arg1|
   last_response.should have_xpath("//input[@type=\"submit\"]")
   last_response.should have_xpath("//input[@value=\"Probar\"]")
 end
+
+Given(/^envio letra "(.*?)"$/) do |letra|
+  visit '/letra', :post, "letra=#{letra}"
+end
