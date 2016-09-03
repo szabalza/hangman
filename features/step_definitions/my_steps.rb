@@ -1,5 +1,5 @@
-When(/^inicio la aplicacion$/) do
-  visit '/'
+When(/^inicio la aplicacion con palabra secreta "(.*?)"$/) do |palabra|
+  visit '/palabra', :get, "palabra=#{palabra}"
 end
 
 Then(/^debo ver el título "(.*?)"$/) do |titulo|
@@ -15,9 +15,9 @@ Then(/^debo ver el campo de texto de nombre "(.*?)"$/) do |nombre|
   last_response.should have_xpath("//input[@name=\"#{nombre}\"]")
 end
 
-Then(/^debo ver el boton de nombre "(.*?)"$/) do |arg1|
+Then(/^debo ver el boton de nombre "(.*?)"$/) do |nombre|
   last_response.should have_xpath("//input[@type=\"submit\"]")
-  last_response.should have_xpath("//input[@value=\"Probar\"]")
+  last_response.should have_xpath("//input[@value=\"#{nombre}\"]")
 end
 
 Given(/^envio letra "(.*?)"$/) do |letra|
