@@ -17,6 +17,9 @@ class Hangman
     def ingresarLetra l
         @letras = @letras << l
     end
+    def setPlayMode mode 
+        @multiplayer = mode == "multi"
+    end
     def getLetras 
         @letras
     end
@@ -39,7 +42,7 @@ class Hangman
     def revelarPalabra 
         @palabra
     end
-    def isMultiplayer 
+    def getMultiplayer 
         @multiplayer
     end
     def getErrores 
