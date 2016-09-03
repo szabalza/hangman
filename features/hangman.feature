@@ -16,4 +16,13 @@ Scenario: Al iniciar se muestra un boton para enviar la letra
 	When inicio la aplicacion
 	Then debo ver el boton de nombre "Probar"
 
+Scenario: Al ganar se muestra un mensaje
+	Given inicio la aplicacion
+	And envio letra "h"
+	And envio letra "a"
+	And envio letra "n"
+	And envio letra "g"
+	When envio letra "m"
+	Then debo ver el texto "GANASTE!"
+
 
