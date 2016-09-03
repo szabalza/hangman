@@ -52,4 +52,9 @@ describe Hangman do
         perdio = @hangman.perdio
         expect(perdio).to be == true
     end
+    it "Al revelar la palabra esta se muestra" do
+        @hangman.setPalabra "hangman"
+        palabra = @hangman.revelarPalabra    
+        expect(palabra).to be == "hangman"
+    end
 end

@@ -30,6 +30,9 @@ class Hangman
         index = Random.new.rand(0..len-1)
         split[index]
     end
+    def revelarPalabra 
+        @palabra
+    end
     def getErrores 
         filtered = (@letras.split '').map {|c| if @palabra.include? c then 0 else 1 end}
         filtered = filtered.inject(0){|sum,x| sum + x }

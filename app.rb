@@ -6,6 +6,8 @@ get '/' do
     @secret = @@hangman.getSecretWord
     @gano = @@hangman.gano
     @perdio = @@hangman.perdio
+    @errores = @@hangman.getErrores
+    @palabra = @@hangman.revelarPalabra
     erb :index
 end
 
@@ -14,6 +16,8 @@ post '/letra' do
     @secret = @@hangman.getSecretWord
     @gano = @@hangman.gano
     @perdio = @@hangman.perdio
+    @errores = @@hangman.getErrores
+    @palabra = @@hangman.revelarPalabra
     erb :index
 end
 
@@ -23,6 +27,8 @@ get '/palabra' do
     @secret = @@hangman.getSecretWord
     @gano = @@hangman.gano
     @perdio = @@hangman.perdio
+    @errores = @@hangman.getErrores
+    @palabra = @@hangman.revelarPalabra
     erb :index    
 end
 
@@ -31,5 +37,7 @@ post '/reiniciar' do
     @secret = @@hangman.getSecretWord
     @gano = @@hangman.gano
     @perdio = @@hangman.perdio
+    @errores = @@hangman.getErrores
+    @palabra = @@hangman.revelarPalabra
     erb :index
 end
