@@ -17,6 +17,15 @@ post '/letra' do
     erb :index
 end
 
+get '/palabra' do
+    @@hangman = Hangman.new
+    @@hangman.setPalabra params[:palabra] 
+    @secret = @@hangman.getSecretWord
+    @gano = @@hangman.gano
+    @perdio = @@hangman.perdio
+    erb :index    
+end
+
 post '/reiniciar' do
     @@hangman = Hangman.new
     @secret = @@hangman.getSecretWord
