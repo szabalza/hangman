@@ -31,7 +31,6 @@ class Hangman
     end
     def setPalabra(palabra)
         @palabra = palabra
-        @multiplayer = true
     end
     def getPalabra 
         split = @diccionario.split ' '

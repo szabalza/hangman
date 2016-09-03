@@ -35,6 +35,18 @@ get '/palabra' do
     erb :index    
 end
 
+post '/setmode' do 
+    @@hangman = Hangman.new
+    @@hangman.setPlayMode params[:playmode] 
+    @secret = @@hangman.getSecretWord
+    @gano = @@hangman.gano
+    @perdio = @@hangman.perdio
+    @errores = @@hangman.getErrores
+    @palabra = @@hangman.revelarPalabra
+    @multiplayer = @@hangman.isMultiplayer
+    erb :index
+end
+
 post '/reiniciar' do
     @@hangman = Hangman.new
     @secret = @@hangman.getSecretWord
