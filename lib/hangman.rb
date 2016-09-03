@@ -21,7 +21,7 @@ class Hangman
         @letras
     end
     def gano 
-         getSecretWord.gsub('_','').gsub(' ','') == @palabra
+         !perdio && getSecretWord.gsub('_','').gsub(' ','') == @palabra
     end
     def perdio 
         getErrores == @erroresPermitidos
