@@ -57,4 +57,9 @@ describe Hangman do
         palabra = @hangman.revelarPalabra    
         expect(palabra).to be == "hangman"
     end
+    it "Al ingresar la palabra el juego es multiplayer" do
+        @hangman.setPalabra "hangman"
+        multiplayer = @hangman.isMultiplayer
+        expect(multiplayer).to be == true
+    end
 end

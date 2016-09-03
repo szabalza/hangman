@@ -8,6 +8,7 @@ get '/' do
     @perdio = @@hangman.perdio
     @errores = @@hangman.getErrores
     @palabra = @@hangman.revelarPalabra
+    @multiplayer = @@hangman.isMultiplayer
     erb :index
 end
 
@@ -18,6 +19,7 @@ post '/letra' do
     @perdio = @@hangman.perdio
     @errores = @@hangman.getErrores
     @palabra = @@hangman.revelarPalabra
+    @multiplayer = @@hangman.isMultiplayer
     erb :index
 end
 
@@ -29,6 +31,7 @@ get '/palabra' do
     @perdio = @@hangman.perdio
     @errores = @@hangman.getErrores
     @palabra = @@hangman.revelarPalabra
+    @multiplayer = @@hangman.isMultiplayer
     erb :index    
 end
 
@@ -39,5 +42,6 @@ post '/reiniciar' do
     @perdio = @@hangman.perdio
     @errores = @@hangman.getErrores
     @palabra = @@hangman.revelarPalabra
+    @multiplayer = @@hangman.isMultiplayer
     erb :index
 end

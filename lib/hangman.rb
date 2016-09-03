@@ -4,10 +4,15 @@ class Hangman
         @letras = ""
         @palabra = getPalabra
         @erroresPermitidos = 6
+        @multiplayer = false
     end
     def getSecretWord 
-        filtered = (@palabra.split '').map {|c| if @letras.include? c then c else '_' end}
-        return filtered.join ' '
+        if perdio then
+            (@palabra.split '').join ' '
+        else
+            filtered = (@palabra.split '').map {|c| if @letras.include? c then c else '_' end}
+            return filtered.join ' '
+        end
     end
     def ingresarLetra l
         @letras = @letras << l
@@ -23,6 +28,7 @@ class Hangman
     end
     def setPalabra(palabra)
         @palabra = palabra
+        @multiplayer = true
     end
     def getPalabra 
         split = @diccionario.split ' '
@@ -32,6 +38,9 @@ class Hangman
     end
     def revelarPalabra 
         @palabra
+    end
+    def isMultiplayer 
+        @multiplayer
     end
     def getErrores 
         filtered = (@letras.split '').map {|c| if @palabra.include? c then 0 else 1 end}
