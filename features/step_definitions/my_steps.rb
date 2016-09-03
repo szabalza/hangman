@@ -1,5 +1,9 @@
 When(/^inicio la aplicacion con palabra secreta "(.*?)"$/) do |palabra|
-  visit '/palabra', :get, "palabra=#{palabra}"
+  visit '/palabra', :post, "palabra=#{palabra}"
+end
+
+Given(/^es single player$/) do
+  visit '/setmode', :post, "playmode=single"
 end
 
 Then(/^debo ver el título "(.*?)"$/) do |titulo|

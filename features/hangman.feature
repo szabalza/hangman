@@ -1,32 +1,39 @@
 Feature: Super Hangman 3.0 
 
 Scenario: Al iniciar se muestra el titulo del juego
-	When inicio la aplicacion con palabra secreta "hangman" 
+	Given es single player
+	When inicio la aplicacion con palabra secreta "hangman"
 	Then debo ver el título "Super Hangman 3.0"
 
 Scenario: Al iniciar se muestra la palabra secreta
+	Given es single player
 	When inicio la aplicacion con palabra secreta "hangman"
 	Then debo ver el texto "_ _ _ _ _ _ _"
 
 Scenario: Al iniciar se muestra un campo para ingresar la letra
+	Given es single player
 	When inicio la aplicacion con palabra secreta "hangman"
 	Then debo ver el campo de texto de nombre "letra"
 
 Scenario: Al iniciar se muestra un boton para enviar la letra
+	Given es single player
 	When inicio la aplicacion con palabra secreta "hangman"
 	Then debo ver el boton de nombre "Probar"
 
 Scenario: Al iniciar se muestra la imagen 0
+	Given es single player
 	When inicio la aplicacion con palabra secreta "hangman"
 	Then debo ver la imagen "0.png"
 
 Scenario: Al tener un error se muestra la imagen 1
-	Given inicio la aplicacion con palabra secreta "hangman"
+	Given es single player
+	And inicio la aplicacion con palabra secreta "hangman"
 	When envio letra "x" 
 	Then debo ver la imagen "1.png"
 
 Scenario: Al ganar se muestra un mensaje
-	Given inicio la aplicacion con palabra secreta "hangman"
+	Given es single player
+	And inicio la aplicacion con palabra secreta "hangman"
 	And envio letra "h"
 	And envio letra "a"
 	And envio letra "n"

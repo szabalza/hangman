@@ -25,8 +25,8 @@ post '/letra' do
     erb :index
 end
 
-get '/palabra' do
-    @@hangman = Hangman.new
+post '/palabra' do
+#    @@hangman = Hangman.new
     @@hangman.setPalabra params[:palabra] 
     @secret = @@hangman.getSecretWord
     @gano = @@hangman.gano

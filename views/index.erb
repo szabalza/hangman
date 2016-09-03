@@ -2,41 +2,63 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href='http://fonts.googleapis.com/css?family=Average|Courgette' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<h1>Super Hangman 3.0</h1>
+	<h1 style="font: 400 45px/0.5 'Courgette', Helvetica, sans-serif; margin-bottom: 20px">Super Hangman 3.0</h1>
 	<div class="container-fluid">
-		<div>
-	 		<img src="<%=@errores%>.png" alt="Hangman Picture" width=200px>
-		</div> 
-		<div style="font-size:2em">
-			<%=@secret%>
-		</div>
-		<div style="display:<%=if (!@gano && !@perdio) then 'block' else 'none' end%>">
-			<form method="POST" action="letra">
-				<input autofocus type="text" name="letra" value="" autocomplete="off"/>
-				<input type="submit" value="Probar"/>
+		<div style="display:<%=if (!@gamestarted) then 'block' else 'none' end%>">
+			<form method="POST" action="setmode">
+				<input hidden type="text" name="playmode" value="single"/>
+				<input type="submit" value="Single Player"/>
+			</form>
+			<form method="POST" action="setmode">
+				<input hidden type="text" name="playmode" value="multi"/>
+				<input type="submit" value="MultiPlayer"/>
 			</form>
 		</div>
-		<div style="display:<%=if @gano then 'block' else 'none' end%>">
-			<div>
-				GANASTE!
+
+		<div style="display:<%=if (@gamestarted) then 'block' else 'none' end%>">
+
+			<div style="display:<%=if @multiplayer then 'block' else 'none' end%>">
+				<form method="POST" action="palabra">
+					<input type="text" name="palabra" value=""/>
+					<input type="submit" value="Cambiar Palabra"/>
+				</form>
 			</div>
-		</div>
-		<div style="display:<%=if @perdio then 'block' else 'none' end%>">
+			
 			<div>
+		 		<img src="<%=@errores%>.png" alt="Hangman Picture" width=200px>
+			</div> 
+			<div style="font-size:2em">
+				<%=@secret%>
+			</div>
+			<div style="display:<%=if (!@gano && !@perdio) then 'block' else 'none' end%>">
+				<form method="POST" action="letra">
+					<input autofocus type="text" name="letra" value="" autocomplete="off"/>
+					<input type="submit" value="Probar"/>
+				</form>
+			</div>
+			<div style="display:<%=if @gano then 'block' else 'none' end%>">
 				<div>
-					PERDISTE :(
-				</div>
-				<div>
-					La palabra era <%= if @perdio then @palabra else 'cheater!' end%>
+					GANASTE!
 				</div>
 			</div>
-		</div>
-		<div style="display:<%=if (@gano || @perdio) then 'block' else 'none' end%>">
-			<form method="POST" action="reiniciar">
-				<input type="submit" value="Jugar de nuevo"/>
-			</form>
+			<div style="display:<%=if @perdio then 'block' else 'none' end%>">
+				<div>
+					<div>
+						PERDISTE :(
+					</div>
+					<div>
+						La palabra era <%= if @perdio then @palabra else 'cheater!' end%>
+					</div>
+				</div>
+			</div>
+			<div style="display:<%=if (@gano || @perdio) then 'block' else 'none' end%>">
+				<form method="POST" action="reiniciar">
+					<input type="submit" value="Jugar de nuevo"/>
+				</form>
+			</div>
 		</div>
 	</div>
 </body>
