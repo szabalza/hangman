@@ -1,6 +1,6 @@
 class Hangman
     def initialize
-        @diccionario = "exquisita sensibilidad bien irrecusable testimonio"
+        @diccionario = "exquisita sensibilidad bien irrecusable testimonio flexibilidad aprendizaje innovacion colaboracion contextos complejos" 
         @letras = ""
         @palabra = getPalabra
         @erroresPermitidos = 6
