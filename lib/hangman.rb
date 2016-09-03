@@ -42,7 +42,7 @@ class Hangman
     def revelarPalabra 
         @palabra
     end
-    def getMultiplayer 
+    def isMultiplayer 
         @multiplayer
     end
     def getErrores 

@@ -59,7 +59,7 @@ describe Hangman do
     end
     it "Al setear modo 'multi' el juego es multiplayer" do
         @hangman.setPlayMode "multi"
-        multiplayer = @hangman.getMultiplayer
+        multiplayer = @hangman.isMultiplayer
         expect(multiplayer).to be == true
     end
 end
