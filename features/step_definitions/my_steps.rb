@@ -23,3 +23,7 @@ end
 Given(/^envio letra "(.*?)"$/) do |letra|
   visit '/letra', :post, "letra=#{letra}"
 end
+
+Then(/^debo ver la imagen "(.*?)"$/) do |imagen|
+  last_response.should have_xpath("//img[@src=\"#{imagen}\"]")
+end

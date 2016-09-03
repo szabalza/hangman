@@ -6,12 +6,15 @@
 <body>
 	<h1>Super Hangman 3.0</h1>
 	<div class="container-fluid">
+		<div>
+	 		<img src="<%=@errores%>.png" alt="Hangman Picture" width=200px>
+		</div> 
 		<div style="font-size:2em">
 			<%=@secret%>
 		</div>
-		<div style="display:<%=if !@gano then 'block' else 'none' end%>">
+		<div style="display:<%=if (!@gano && !@perdio) then 'block' else 'none' end%>">
 			<form method="POST" action="letra">
-				<input autofocus type="text" name="letra" value=""/>
+				<input autofocus type="text" name="letra" value="" autocomplete="off"/>
 				<input type="submit" value="Probar"/>
 			</form>
 		</div>
@@ -22,7 +25,12 @@
 		</div>
 		<div style="display:<%=if @perdio then 'block' else 'none' end%>">
 			<div>
-				PERDISTE :(
+				<div>
+					PERDISTE :(
+				</div>
+				<div>
+					La palabra era <%= if @perdio then @palabra else 'cheater!' end%>
+				</div>
 			</div>
 		</div>
 		<div style="display:<%=if (@gano || @perdio) then 'block' else 'none' end%>">
