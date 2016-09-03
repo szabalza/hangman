@@ -9,6 +9,7 @@ get '/' do
     @errores = @@hangman.getErrores
     @palabra = @@hangman.revelarPalabra
     @multiplayer = @@hangman.isMultiplayer
+    @gamestarted = @@hangman.isGameStarted
     erb :index
 end
 
@@ -20,6 +21,7 @@ post '/letra' do
     @errores = @@hangman.getErrores
     @palabra = @@hangman.revelarPalabra
     @multiplayer = @@hangman.isMultiplayer
+    @gamestarted = @@hangman.isGameStarted
     erb :index
 end
 
@@ -32,6 +34,7 @@ get '/palabra' do
     @errores = @@hangman.getErrores
     @palabra = @@hangman.revelarPalabra
     @multiplayer = @@hangman.isMultiplayer
+    @gamestarted = @@hangman.isGameStarted
     erb :index    
 end
 
@@ -44,6 +47,7 @@ post '/setmode' do
     @errores = @@hangman.getErrores
     @palabra = @@hangman.revelarPalabra
     @multiplayer = @@hangman.isMultiplayer
+    @gamestarted = @@hangman.isGameStarted
     erb :index
 end
 
@@ -55,5 +59,6 @@ post '/reiniciar' do
     @errores = @@hangman.getErrores
     @palabra = @@hangman.revelarPalabra
     @multiplayer = @@hangman.isMultiplayer
+    @gamestarted = @@hangman.isGameStarted
     erb :index
 end

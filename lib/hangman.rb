@@ -5,6 +5,7 @@ class Hangman
         @palabra = getPalabra
         @erroresPermitidos = 6
         @multiplayer = false
+        @gamestarted = false
     end
     def getSecretWord 
         if perdio then
@@ -19,6 +20,7 @@ class Hangman
     end
     def setPlayMode mode 
         @multiplayer = mode == "multi"
+        @gamestarted = true
     end
     def getLetras 
         @letras
@@ -44,8 +46,12 @@ class Hangman
     def isMultiplayer 
         @multiplayer
     end
+    def isGameStarted 
+        @gamestarted
+    end
     def getErrores 
         filtered = (@letras.split '').map {|c| if @palabra.include? c then 0 else 1 end}
         filtered = filtered.inject(0){|sum,x| sum + x }
+        if filtered > @erroresPermitidos then @erroresPermitidos else filtered end
     end
 end
